@@ -166,8 +166,24 @@ module.exports = {
     https: false,
     hotOnly: false,
     /* 使用代理 */
-    // proxy: {
-    // },
+    proxy: {
+      '/foo': {
+        target: 'http://shmclass.mr-lin.site',
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/foo': ''
+        }
+      },
+      '/too': {
+        target: 'http://sms.mr-lin.site',
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/too': ''
+        }
+      }
+    },
     before: () => {}
   }
   // 第三方插件配置
